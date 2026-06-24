@@ -13,6 +13,18 @@ app.use(express.json());
 const DEFAULT_LIMIT = 20;
 const MAX_LIMIT = 100;
 
+
+app.get("/", (_req, res) => {
+  res.json({
+    message: "CodeVector Backend Assignment API",
+    endpoints: [
+      "/api/products",
+      "/api/categories",
+      "/api/health"
+    ]
+  });
+});
+
 app.get('/api/products', async (req, res) => {
   try {
     const limit = Math.min(
